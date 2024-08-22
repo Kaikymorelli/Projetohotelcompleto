@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="js/quarto.js"></script>
+</head>
+<style>
+	.img-fluid {
+		width: 50%;
+		max-height: 500px;
+		overflow: hidden;
+		padding: 0.4%;
+	}
+
+	header {
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.img-logo {
+		width: 70px;
+		height: 70px;
+		overflow: hidden;
+		padding: 0.4%;
+	}
+
+	.botao-1 {
+		background-color: #C3B3A7;
+		border: none;
+
+	}
+
+	.botao-1:hover {
+		background-color: #ccc;
+
+	}
+	.nav-link.active {
+		background-color: #C3B3A7;
+	}
+	.nav-link {
+            color: #C3B3A7;
+        }
+   .nav-link:hover { 
+	   color: #6c3c0c;
+   }
+	
+</style>
+<body>
+	<div class="container">
+		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+			<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+				<img src="/images/logo1.jpg" class="img-logo">
+				<span class="fs-4">HOTEL ESTANCIA</span>
+				
+			</a>
+			<ul class="nav nav-pills">
+				<li class="nav-item"><a href="index.html" class="nav-link" >Home</a></li>
+				<li class="nav-item"><a href="hospede.html" class="nav-link " >Hóspedes</a></li>
+				<li class="nav-item"><a href="quarto.html" class="nav-link active " style="background-color: #C3B3A7;">Quartos</a></li>
+				<li class="nav-item"><a href="reserva.html" class="nav-link" ">Reservas</a></li>
+			</ul>
+		</header>
+
+		<div class="content">
+			<h2>Quartos</h2>
+			<button class=" botao-1 btn btn-primary mb-3" onclick="showAddRoomForm()">Incluir</button>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Numero</th>
+						<th>Qtdecamas</th>
+					</tr>
+				</thead>
+				<tbody id="roomTableBody">
+					<!-- Quartos serão carregados aqui -->
+				</tbody>
+			</table>
+		</div>
+
+		<div id="roomFormModal" style="display:none;">
+			<h3 id="formTitle">Incluir Quartos</h3>
+			<form id="roomForm">
+				<input type="hidden" id="roomId">
+				<div class="mb-3">
+					<label for="roomNumero" class="form-label">Numero</label>
+					<input type="text" class="form-control" id="roomNumero" required>
+				</div>
+				<div class="mb-3">
+					<label for="roomQtdecamas" class="form-label">Qtdecamas</label>
+					<input type="text" class="form-control" id="roomQtdecamas" required>
+				</div>
+
+			<button class=" botao-1 btn btn-primary " onclick="showAddGuestForm()">Save</button>
+				<button type="button" class="btn btn-secondary" onclick="closeRoomForm()">Cancel</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
